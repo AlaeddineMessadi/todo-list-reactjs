@@ -1,17 +1,18 @@
 import React from 'react'
 
 
-import 'Header.css'
-import Timer from 'Timer'
+import './Header.css'
+import Timer from '../Widgets/Timer/Timer'
 
 const Header = (props) => {
 
     return (
         <header>
-            <h1>ToDo List</h1>
-                <Timer/>
-                <p>Looks like another Wednesday</p>
-            </div>
+            <h1>Make it done mate!</h1>
+            <Timer />
+            <p>Looks like another Wednesday</p>
         </header>
     )
 }
+
+export default Header;
