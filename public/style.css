@@ -52,18 +52,6 @@ table {
 	border-spacing: 0;
 }
 
-
-
-/**
- *
- * Primary Color : #08d9d6
- * Primary Color : #252a34
- * Primary Color : #ff2e63
- * Primary Color : #eaeaea
- *
- */
-
-
  noscript p {
     padding: 20px 0;
     text-align: center;
@@ -74,3 +62,36 @@ table {
 noscript p span {
     color: #08d9d6
 }
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #598392;
+}
+
+.wrapper {
+  margin: auto;
+  width: 95%;
+}
+
+
+
+
+
+
+
+/**
+ *
+ * Primary Color : #00b8a9
+ * Primary Color : #f8f3d4
+ * Primary Color : #f6416c
+ * Primary Color : #ffde7d
+ *
+ */
+ 
