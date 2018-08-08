@@ -1,0 +1,43 @@
+.main-form {
+    margin: auto;
+    margin-top: 20px;
+    color: rgb(209, 60, 60);
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.form-input {
+    display: flex;
+}
+
+.form-input input[type="text"] {
+    padding: 12px;
+    width: 100%;
+    font-size: 1.25em;
+    outline: none;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    flex: 90%;
+    background: #EFF6E0;
+}
+
+.form-input button {
+    border-radius: 0 5px 5px 0;
+    border: none;
+    background: #EFF6E0;
+    color: #BEBEBE;
+    font-size: 1.4em;
+    font-weight: bold;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.clear-button {
+    float: right;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+
+clear-button:hover {
+    cursor: pointer;
+}
