@@ -1,0 +1,34 @@
+.wrapper {
+  margin: auto;
+  padding: 64px 30px;
+}
+
+/* Media Queries */
+
+@media (min-width: 750px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    width: 85%;
+  }
+}
+
+@media (min-width: 1240px) {
+  .wrapper {
+    width: 50%;
+    margin-top: 160px;
+  }
+  #main-form {
+    margin-top: 80px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .wrapper {
+    width: 25%;
+  }
+}
