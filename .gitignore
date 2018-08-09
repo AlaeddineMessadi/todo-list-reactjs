@@ -1,6 +1,5 @@
+
 # Folders
 /.vscode
 /node_modules
-
-# Files
-yarn.lock
+/build
