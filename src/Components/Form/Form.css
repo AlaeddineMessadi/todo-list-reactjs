@@ -38,6 +38,6 @@
     font-weight: bold;
 }
 
-clear-button:hover {
+.clear-button:hover {
     cursor: pointer;
 }

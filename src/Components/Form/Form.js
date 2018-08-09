@@ -17,8 +17,8 @@ class Form extends Component {
     }
 
     enterButtonHandler = (event) => {
-        event.preventDefault();
-        if (event.keyCode === 13){
+        if (event.keyCode === 13 || event.target.type === 'submit') {
+            console.log('Triggered');
             this.props.updateList(this.state.task);
         }
     }
@@ -35,9 +35,9 @@ class Form extends Component {
                         onChange={this.updateTask}
                         onKeyUp={this.enterButtonHandler}
                     />
-                    <button type="submit">+</button>
+                    <button onClick={this.enterButtonHandler}>+</button>
                 </div>
-                <p className="clear-button">Clear</p>
+                <p className="clear-button" onClick={ () => this.props.clearTodoList()}>Clear</p>
             </div>
         );
     }

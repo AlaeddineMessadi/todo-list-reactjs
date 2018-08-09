@@ -11,21 +11,29 @@ class TodoList extends Component {
     }
   }
 
-  checkedToggler = () => (
-    this.setState({ checked: !this.state.checked })
-  );
+  checkedToggler = () => {
+    return this.setState({ checked: !this.state.checked });
+  }
+
+
+
 
   render() {
     return (
       <div className="main">
         <ul className="list">
+
           {
             this.props.todoList.map((task, index) => {
-              <li id={index} className={this.state.checked ? 'checked' : ''}>
-                <input type="checkbox" onClick={this.checkedToggler} />
-                <span>{task}</span>
-                <button className="remove" onClick={this.props.removeFromList(index)}>x</button>
-              </li>
+              return (
+                <li key={index} className={this.state.checked ? 'checked' : ''}>
+                  <input type="checkbox" onClick={this.checkedToggler} />
+                  <span>{task}</span>
+                  <button className="remove"
+                    onClick={() => this.props.removeFromList(index)}
+                  >x</button>
+                </li>
+              )
             })
           }
         </ul>
