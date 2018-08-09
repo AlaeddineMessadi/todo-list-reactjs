@@ -9,8 +9,8 @@ const TodoList = (props) => {
       <ul className="list">
 
         {
-          Object.entries(props.todoList).forEach(([taskId, taskObj]) => {
-
+          Object.keys(props.todoList).map((taskId) => {
+            const taskObj = props.todoList[taskId];
             return (
               <li key={taskId} className={taskObj.checked ? 'checked' : ''}>
                 <input type="checkbox" onClick={() => props.checkedToggler(taskId)} />
