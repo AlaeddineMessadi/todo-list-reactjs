@@ -17,15 +17,16 @@ class Form extends Component {
     }
 
     enterButtonHandler = (event) => {
+        event.preventDefault();
         if (event.keyCode === 13){
-            this.props.addTaskToList(this.state.task);
+            this.props.updateList(this.state.task);
         }
     }
 
     render() {
         return (
             <div className="main-form">
-                <form className="form-input">
+                <div className="form-input">
                     <input
                         type="text"
                         name="input"
@@ -35,7 +36,7 @@ class Form extends Component {
                         onKeyUp={this.enterButtonHandler}
                     />
                     <button type="submit">+</button>
-                </form>
+                </div>
                 <p className="clear-button">Clear</p>
             </div>
         );
