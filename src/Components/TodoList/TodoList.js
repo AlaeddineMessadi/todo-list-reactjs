@@ -1,45 +1,31 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import './TodoList.css';
 
-class TodoList extends Component {
-  constructor(props) {
-    super(props);
+const TodoList = (props) => {
 
-    this.state = {
-      checked: false
-    }
-  }
+  return (
+    <div className="main">
+      <ul className="list">
 
-  checkedToggler = () => {
-    return this.setState({ checked: !this.state.checked });
-  }
+        {
+          Object.entries(props.todoList).forEach(([taskId, taskObj]) => {
 
+            return (
+              <li key={taskId} className={taskObj.checked ? 'checked' : ''}>
+                <input type="checkbox" onClick={() => props.checkedToggler(taskId)} />
+                <span>{taskObj.task}</span>
+                <button className="remove"
+                  onClick={() => props.removeFromList(taskId)}
+                >x</button>
+              </li>
+            )
+          })
+        }
+      </ul>
+    </div>
+  );
 
-
-
-  render() {
-    return (
-      <div className="main">
-        <ul className="list">
-
-          {
-            this.props.todoList.map((task, index) => {
-              return (
-                <li key={index} className={this.state.checked ? 'checked' : ''}>
-                  <input type="checkbox" onClick={this.checkedToggler} />
-                  <span>{task}</span>
-                  <button className="remove"
-                    onClick={() => this.props.removeFromList(index)}
-                  >x</button>
-                </li>
-              )
-            })
-          }
-        </ul>
-      </div>
-    );
-  }
 }
 
 export default TodoList;

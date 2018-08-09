@@ -19,7 +19,7 @@ class Form extends Component {
     enterButtonHandler = (event) => {
         if (event.keyCode === 13 || event.target.type === 'submit') {
             console.log('Triggered');
-            this.props.updateList(this.state.task);
+            this.props.updateList({checked: false, task: this.state.task});
         }
     }
 
