@@ -17,7 +17,7 @@ class App extends Component {
       todoList: {
         'A3eEpk': {
           checked: false,
-          task: 'Go to gym'
+          task: 'Smile :)'
 
         },
         'rEut8m': {
@@ -31,15 +31,21 @@ class App extends Component {
   addTaskToList = (task) => {
     let taskId;
     do {
-      taskId = idGenerator(5);
+      taskId = idGenerator(6);
     } while (taskId in this.state.todoList)
 
-    const todoListClone = {
-      ...this.state.todoList,
-      taskId: task
-    }
+    const todo = {}
+    todo[taskId] = task;
 
-    this.setState({ todoList: todoListClone });
+    this.setState((prevState) => ({
+      todoList: {
+        ...this.state.todoList,
+        todoList: todo
+      }
+    })
+    );
+
+    console.log(this.state.todoList)
   }
 
   removeFromListByIndex = (taskId) => {
@@ -55,7 +61,7 @@ class App extends Component {
   checkedToggler = (taskId) => {
     const todoListClone = { ...this.state.todoList };
 
-    todoListClone[taskId].checked =!todoListClone[taskId].checked;
+    todoListClone[taskId].checked = !todoListClone[taskId].checked;
 
     this.setState({
       todoList: todoListClone
