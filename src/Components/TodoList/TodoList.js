@@ -9,14 +9,14 @@ const TodoList = (props) => {
       <ul className="list">
 
         {
-          Object.keys(props.todoList).map((taskId) => {
-            const taskObj = props.todoList[taskId];
+          Object.keys(props.todoList).map((index) => {
+            const taskObj = props.todoList[index];
             return (
-              <li key={taskId} className={taskObj.checked ? 'checked' : ''}>
-                <input type="checkbox" onClick={() => props.checkedToggler(taskId)} />
+              <li key={taskObj.id} className={taskObj.checked ? 'checked' : ''}>
+                <input type="checkbox" onClick={() => props.checkedToggler(taskObj.id)} />
                 <span>{taskObj.task}</span>
                 <button className="remove"
-                  onClick={() => props.removeFromList(taskId)}
+                  onClick={() => props.removeFromList(taskObj.id)}
                 >x</button>
               </li>
             )

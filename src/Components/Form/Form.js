@@ -16,12 +16,12 @@ class Form extends Component {
         })
     }
 
-    enterButtonHandler = (event) => {
+    addTaskToListHandler = (event) => {
         if (!this.state.task) return;
         
         // if Enter key or Submit button
         if (event.keyCode === 13 || event.target.type === 'submit') {
-            this.props.updateList({checked: false, task: this.state.task});
+            this.props.addTaskToList(this.state.task);
             this.setState({ task: ''})
         }
     }
@@ -36,9 +36,9 @@ class Form extends Component {
                         placeholder="What needs to be done today?"
                         value={this.state.task}
                         onChange={this.updateTask}
-                        onKeyUp={this.enterButtonHandler}
+                        onKeyUp={this.addTaskToListHandler}
                     />
-                    <button onClick={this.enterButtonHandler}>+</button>
+                    <button onClick={this.addTaskToListHandler}>+</button>
                 </div>
                 <p className="clear-button" onClick={ () => this.props.clearTodoList()}>Clear</p>
             </div>
