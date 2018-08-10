@@ -14,17 +14,18 @@ class App extends Component {
     super(props);
 
     this.state = {
-      todoList: {
-        'A3eEpk': {
+      todoList: [
+        {
+          id: 'A3eEpk',
           checked: false,
           task: 'Smile :)'
-
         },
-        'rEut8m': {
+        {
+          id : 'rEut8m',
           checked: true,
           task: 'Clean house'
         }
-      }
+      ]
     }
   }
 
@@ -34,16 +35,17 @@ class App extends Component {
       taskId = idGenerator(6);
     } while (taskId in this.state.todoList)
 
-    const todo = {}
-    todo[taskId] = task;
 
-    this.setState((prevState) => ({
-      todoList: {
-        ...this.state.todoList,
-        todoList: todo
+    this.setState((prevState) =>(
+      {
+        todoList: {
+          ...prevState,
+          [
+            id: 1
+          ]
+        }
       }
-    })
-    );
+    ));
 
     console.log(this.state.todoList)
   }
