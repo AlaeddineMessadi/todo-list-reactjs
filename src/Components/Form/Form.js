@@ -21,6 +21,8 @@ class Form extends Component {
         if (event.keyCode === 13 || event.target.type === 'submit') {
             this.props.updateList({checked: false, task: this.state.task});
         }
+
+        this.setState({ task: ''})
     }
 
     render() {
