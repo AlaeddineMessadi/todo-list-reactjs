@@ -14,48 +14,54 @@ class App extends Component {
     super(props);
 
     this.state = {
-      todoList: {
-        'A3eEpk': {
+      todoList: [
+        {
+          id: 'A3eEpk',
           checked: false,
-          task: 'Go to gym'
-
+          task: 'Smile :)'
         },
-        'rEut8m': {
+        {
+          id : 'rEut8m',
           checked: true,
           task: 'Clean house'
         }
-      }
+      ]
     }
   }
 
   addTaskToList = (task) => {
     let taskId;
     do {
-      taskId = idGenerator(5);
+      taskId = idGenerator(6);
     } while (taskId in this.state.todoList)
 
-    const todoListClone = {
+    let todoListClone = [
       ...this.state.todoList,
-      taskId: task
-    }
+      {
+        id: taskId,
+        checked: false,
+        task: task
+      }
+    ];
 
-    this.setState({ todoList: todoListClone });
+    this.setState({todoList: todoListClone})
   }
 
   removeFromListByIndex = (taskId) => {
-    const todoListClone = { ...this.state.todoList };
-
-    delete todoListClone[taskId]
+    const todoListClone = [...this.state.todoList];
+    const foundTaskIdex = todoListClone.findIndex(o => o.id === taskId)
+    todoListClone.splice(foundTaskIdex, 1)
 
     this.setState({ todoList: todoListClone });
   }
 
-  clearTodoList = () => (this.setState({ todoList: {} }))
+  clearTodoList = () => (this.setState({ todoList: [] }))
 
   checkedToggler = (taskId) => {
-    const todoListClone = { ...this.state.todoList };
+    const todoListClone = [...this.state.todoList];
+    const indexFound = todoListClone.findIndex(o => o.id === taskId)
 
-    todoListClone[taskId].checked =!todoListClone[taskId].checked;
+    todoListClone[indexFound].checked = !todoListClone[indexFound].checked;
 
     this.setState({
       todoList: todoListClone
@@ -67,7 +73,7 @@ class App extends Component {
       <section className="wrapper">
         <Header />
         <Form
-          updateList={this.addTaskToList}
+          addTaskToList={this.addTaskToList}
           clearTodoList={this.clearTodoList}
         />
         <TodoList
