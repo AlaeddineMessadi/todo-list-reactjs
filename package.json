@@ -4,8 +4,8 @@
   "private": true,
   "homepages": "https://alaeddinemessadi.github.io/todo-list-reactjs",
   "dependencies": {
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-redux": "^5.0.7",
     "react-scripts": "1.1.4"
   },
